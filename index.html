@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turbo Circuit 3D</title>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="lap" class="hud panel">VOLTA 1 / 3</div>
+<div id="position" class="hud panel">1º LUGAR</div>
+
+<div id="timer" class="hud panel">
+  <span class="label">TEMPO ATUAL</span>
+  <span id="time">00:00.00</span>
+  <span class="label" style="margin-top:6px">MELHOR VOLTA</span>
+  <span id="best">--:--.--</span>
+</div>
+
+<canvas id="minimap" class="hud"></canvas>
+
+<div id="speedo" class="hud panel">
+  <div id="speedRow">
+    <span id="speed">0</span>
+    <span id="gear">N</span>
+  </div>
+  <span class="label">KM/H · MARCHA</span>
+  <div id="rpmBar"><div id="rpmFill"></div></div>
+</div>
+
+<div id="controls" class="hud">
+  <kbd>W</kbd>/<kbd>↑</kbd> acelerar &nbsp; <kbd>S</kbd>/<kbd>↓</kbd> frear/ré<br>
+  <kbd>A</kbd><kbd>D</kbd>/<kbd>←</kbd><kbd>→</kbd> virar &nbsp; <kbd>Espaço</kbd> freio de mão<br>
+  <kbd>P</kbd> pausar &nbsp; <kbd>Enter</kbd> reiniciar (após a chegada)
+</div>
+
+<div id="status" class="hud"></div>
+<div id="countdown"></div>
+
+<div id="pause"><div class="big">PAUSADO</div></div>
+
+<div id="victory">
+  <div class="card">
+    <h1 id="vTitle">VITÓRIA!</h1>
+    <p id="vSub"></p>
+    <div class="stats">
+      <div>TEMPO TOTAL<strong id="vTotal">00:00.00</strong></div>
+      <div>MELHOR VOLTA<strong id="vBest">--:--.--</strong></div>
+    </div>
+    <button id="restart">JOGAR NOVAMENTE</button>
+  </div>
+</div>
+
+<div id="error">
+  <div id="errorBox">
+    <h2>O jogo não conseguiu iniciar</h2>
+    <p id="errorHint"></p>
+    <div id="errorMsg"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
